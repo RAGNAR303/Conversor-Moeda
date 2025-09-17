@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>DevClub Conversor</title>
+  </head>
+  <body
+    class="p-1 flex flex-col justify-center items-center w-screen h-screen bg-linear-to-r to-indigo-800 from-gray-800"
+  >
+    <main
+      class="w-full max-w-[500px] rounded-xl border-1 border-gray-700 bg-gray-800/50 backdrop-blur-xl flex flex-col gap-5 justify-center items-center p-2.5 shadow-2xl shadow-black/60"
+    >
+      <h1 class="text-3xl text-center font-extrabold m-4 text-gray-300">
+        Conversor de Moeda
+      </h1>
+      <form
+        class="flex flex-col gap-2.5 rounded-2xl bg-gray-800/60 px-1 py-3 shadow-2xl border-1 border-gray-700"
+        id="converterForm"
+      >
+        <!--Valor e primeira moeda-->
+        <section class="flex w-full items-center justify-center gap-5">
+          <!--Input 1-->
+          <div class="flex flex-2 flex-col">
+            <label for="amount" class="font-medium">Valor</label>
+            <input
+              class="flex flex-2 w-full p-1.5 px-2.5 bg-gray-300 border-2 border-gray-400 rounded-xl text-md font-medium"
+              type="number"
+              id="amount"
+              placeholder="Digite o valor...."
+              step="0.1"
+              min="0"
+              required
+            />
+          </div>
+          <!--Selection 1-->
+          <div class="flex flex-1 flex-col">
+            <label for="fromCurrency" class="font-medium">De</label>
+            <select
+              class="flex w-full p-1.5 bg-gray-300 border-2 border-gray-400 rounded-xl text-md font-medium"
+              name="fromCurrency"
+              id="fromCurrency"
+            >
+              <option value="USD">USD - Dólar</option>
+              <option value="EUR">EUR - Euro</option>
+              <option value="BRL" selected>BRL - Real</option>
+              <option value="GBP">GBP - Libra</option>
+              <option value="JPY">JPY - Iene</option>
+              <option value="CAD">CAD - Dólar Canadense</option>
+              <option value="AUD">AUD - Dólar Australiano</option>
+              <option value="CHF">CHF - Franco Suíço</option>
+              <option value="CNY">CNY - Yuan</option>
+              <option value="ARS">ARS - Peso Argentino</option>
+            </select>
+          </div>
+        </section>
+
+        <!--Resultado e segunda moeda-->
+        <section class="flex gap-5">
+          <div class="flex flex-2 flex-col">
+            <!--Input 2-->
+            <label for="result" class="font-medium">Resultado</label>
+            <input
+              class="p-1.5 px-2.5 w-full bg-gray-300 border-2 border-gray-400 rounded-xl text-md font-medium"
+              type="text"
+              placeholder="Resultado..."
+              id="result"
+              readonly
+            />
+          </div>
+          <!--Selection 2-->
+          <div class="flex flex-1 flex-col">
+            <label for="toCurrency" class="font-medium">Para</label>
+            <select
+              class="p-1.5 w-full bg-gray-300 border-2 border-gray-400 rounded-xl text-md font-medium"
+              name="toCurrency"
+              id="toCurrency"
+            >
+              <option value="USD" selected>USD - Dólar</option>
+              <option value="EUR">EUR - Euro</option>
+              <option value="BRL">BRL - Real</option>
+              <option value="GBP">GBP - Libra</option>
+              <option value="JPY">JPY - Iene</option>
+              <option value="CAD">CAD - Dólar Canadense</option>
+              <option value="AUD">AUD - Dólar Australiano</option>
+              <option value="CHF">CHF - Franco Suíço</option>
+              <option value="CNY">CNY - Yuan</option>
+              <option value="ARS">ARS - Peso Argentino</option>
+            </select>
+          </div>
+        </section>
+        <!--Botão de converter-->
+        <button
+          id="convertButton"
+          type="submit"
+          class="mt-5 md:text-2xl  hover:opacity-90 hover:-translate-y-0.5 active:text-white hover:shadow-2xl transition-all duration-300 font-black text-gray-300 bg-linear-to-t to-sky-500 from-indigo-500 rounded-xl p-4 w-full justify-center items-center"
+        >
+          💰 Converter Moeda
+        </button>
+      </form>
+      <!--Informação de Cambio-->
+      <div id="loading" class="hidden">
+        <div
+          class="border-4 border-gray-200 border-t-indigo-700 w-[40px] h-[40px] rounded-full m-auto animate-spin"
+        ></div>
+        <p class="font-extrabold">Buscando cotação...</p>
+      </div>
+      <div
+        id="info"
+        class="hidden w-full items-center justify-center bg-linear-to-r to-indigo-500 from-rose-500 rounded-xl p-5 text-white text-center"
+      ></div>
+      <div id="error" class="bg-red-300 w-full p-2 rounded-md hidden"></div>
+      <p class="text-gray-400 text-center">💡Taxa atualizada em tempo real</p>
+    </main>
+    <script src="scripts.js"></script>
+  </body>
+</html>

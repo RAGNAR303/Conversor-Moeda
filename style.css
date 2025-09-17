@@ -1,0 +1,23 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@100..900&display=swap');
+*{
+    outline: none;
+    font-family: "Lexend Exa", sans-serif;
+}
+label{
+    margin-bottom: 5px;
+    color: #d1d5db;
+}
+
+select , input{
+    transition: all 0.2s ease-in-out;
+}
+
+
+
+select:focus , input:focus{
+   transform: translateY(-2px);
+   border-color: #615fff ;
+   box-shadow: 0 2px  5px 1px #00000061;
+}
+
