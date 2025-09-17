@@ -4,12 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
     <link rel="stylesheet" href="style.css" />
     <title>DevClub Conversor</title>
   </head>
   <body
     class="p-1 flex flex-col justify-center items-center w-screen h-screen bg-linear-to-r to-indigo-800 from-gray-800"
   >
+    <dotlottie-wc
+      src="https://lottie.host/c2253426-e507-47fd-9d54-553d8ca79a56/BtSwKKPCiy.lottie"
+      style="width: 150px; height: 150px"
+      speed="1"
+      autoplay
+      loop
+    ></dotlottie-wc>
     <main
       class="w-full max-w-[500px] rounded-xl border-1 border-gray-700 bg-gray-800/50 backdrop-blur-xl flex flex-col gap-5 justify-center items-center p-2.5 shadow-2xl shadow-black/60"
     >
@@ -95,7 +103,7 @@
         <button
           id="convertButton"
           type="submit"
-          class="mt-5 md:text-2xl  hover:opacity-90 hover:-translate-y-0.5 active:text-white hover:shadow-2xl transition-all duration-300 font-black text-gray-300 bg-linear-to-t to-sky-500 from-indigo-500 rounded-xl p-4 w-full justify-center items-center"
+          class="mt-5 md:text-2xl hover:opacity-90 hover:-translate-y-0.5 active:text-white hover:shadow-2xl transition-all duration-300 font-black text-gray-300 bg-linear-to-t to-sky-500 from-indigo-500 rounded-xl p-4 w-full justify-center items-center"
         >
           💰 Converter Moeda
         </button>
@@ -114,6 +122,11 @@
       <div id="error" class="bg-red-300 w-full p-2 rounded-md hidden"></div>
       <p class="text-gray-400 text-center">💡Taxa atualizada em tempo real</p>
     </main>
+    <script
+      src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.0/dist/dotlottie-wc.js"
+      type="module"
+    ></script>
+
     <script src="scripts.js"></script>
   </body>
 </html>

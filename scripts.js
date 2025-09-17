@@ -47,3 +47,4 @@ converterForm.addEventListener("submit", function (event) {
   event.preventDefault();
   convertMoney();
 });
+
