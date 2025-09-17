@@ -9,7 +9,7 @@
     <title>DevClub Conversor</title>
   </head>
   <body
-    class="p-1 flex flex-col justify-center items-center w-screen h-screen bg-linear-to-r to-indigo-800 from-gray-800"
+    class="p-1 flex flex-col overflow-x-hidden items-center w-screen h-screen bg-linear-to-r to-indigo-800 from-gray-800"
   >
     <dotlottie-wc
       src="https://lottie.host/c2253426-e507-47fd-9d54-553d8ca79a56/BtSwKKPCiy.lottie"
@@ -29,12 +29,12 @@
         id="converterForm"
       >
         <!--Valor e primeira moeda-->
-        <section class="flex w-full items-center justify-center gap-5">
+        <section class="flex w-full items-center justify-center gap-3">
           <!--Input 1-->
           <div class="flex flex-2 flex-col">
             <label for="amount" class="font-medium">Valor</label>
             <input
-              class="flex flex-2 w-full p-1.5 px-2.5 bg-gray-300 border-2 border-gray-400 rounded-xl text-md font-medium"
+              class="flex flex-2 w-full p-1.5 px-2.5 bg-gray-300 border-1 border-gray-400 rounded-xl font-medium"
               type="number"
               id="amount"
               placeholder="Digite o valor...."
@@ -47,7 +47,7 @@
           <div class="flex flex-1 flex-col">
             <label for="fromCurrency" class="font-medium">De</label>
             <select
-              class="flex w-full p-1.5 bg-gray-300 border-2 border-gray-400 rounded-xl text-md font-medium"
+              class="flex w-full py-1.5 px-2.5 bg-gray-300 border-1 border-gray-400 rounded-xl text-[17px] font-medium"
               name="fromCurrency"
               id="fromCurrency"
             >
@@ -66,12 +66,12 @@
         </section>
 
         <!--Resultado e segunda moeda-->
-        <section class="flex gap-5">
+        <section class="flex w-full items-center justify-center gap-3">
           <div class="flex flex-2 flex-col">
             <!--Input 2-->
             <label for="result" class="font-medium">Resultado</label>
             <input
-              class="p-1.5 px-2.5 w-full bg-gray-300 border-2 border-gray-400 rounded-xl text-md font-medium"
+              class="p-1.5 px-2.5 w-full bg-gray-300 border-1 border-gray-400 rounded-xl font-medium"
               type="text"
               placeholder="Resultado..."
               id="result"
@@ -82,7 +82,7 @@
           <div class="flex flex-1 flex-col">
             <label for="toCurrency" class="font-medium">Para</label>
             <select
-              class="p-1.5 w-full bg-gray-300 border-2 border-gray-400 rounded-xl text-md font-medium"
+              class="p-1.5 px-2.5 w-full bg-gray-300 border-1 border-gray-400 rounded-xl text-[17px] font-medium"
               name="toCurrency"
               id="toCurrency"
             >
