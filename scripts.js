@@ -30,17 +30,28 @@ async function convertMoney() {
 
       result.value = convertedValue;
 
-      setTimeout(function () {
-        loading.style.display = "none";
-        info.style.display = "block";
-        reload.style.display = "block";
-        info.innerHTML = `
-    <h1 class="font-bold text-2xl">${amount.value} ${fromCurrency.value} = ${result.value} ${toCurrency.value}</h1>
+      loading.style.display = "none";
+      info.style.display = "block";
+      reload.style.display = "block";
+
+      console.log(toCurrency.value);
+
+      const formatValue = new Intl.NumberFormat("pt-BR", {
+        style: "currency",
+        currency: `${fromCurrency.value}`,
+      }).format(amount.value);
+
+      const formatValueResult = new Intl.NumberFormat("pt-BR", {
+        style: "currency",
+        currency: `${toCurrency.value}`,
+      }).format(result.value);
+
+      info.innerHTML = `
+    <h1 class="font-bold  text-[20px] md:text-2xl">${formatValue}  = ${formatValueResult} </h1>
         <p class="font-medium">Taxa 1 ${fromCurrency.value}  = ${rate} ${toCurrency.value}</p>
     `;
 
-        loading.style.display = "none";
-      }, 2000);
+      loading.style.display = "none";
     } catch (err) {
       error.style.display = "block";
       reload.style.display = "block";
@@ -52,7 +63,7 @@ async function convertMoney() {
 
       loading.style.display = "none";
     }
-  }, 100);
+  }, 1000);
 
   convertButton.style.display = "none";
 }
