@@ -9,9 +9,7 @@ const toCurrency = document.getElementById("toCurrency"); //
 const amount = document.getElementById("amount"); // valor inserido no primeiro input
 const converterForm = document.getElementById("converterForm"); // formulario que estão os valores
 const reload = document.getElementById("reload");
-const API_URL = "https://api.exchangerate-api.com/v4/latest/";
-
-reload.style.display = "none";
+const API_URL = "https://api.exchangerate-api.com/v4/latest/"; // link para API em uma constante
 
 async function convertMoney() {
   // async => acincrona
@@ -25,26 +23,30 @@ async function convertMoney() {
       const data = await response.json();
       // pega o valor "rates" que são a cotações do dia e compara com a que fi selecionada
       const rate = data.rates[toCurrency.value];
-
+      // multiplica o valor do input com o valor rate(cotação) setecionada
       const convertedValue = (amount.value * rate).toFixed(2);
 
       result.value = convertedValue;
-
+      // esconde  o loading
       loading.style.display = "none";
+      // mostrar info card
       info.style.display = "block";
+      // mostar o bottao nova consulta
       reload.style.display = "block";
 
-      console.log(toCurrency.value);
+      // formatar valor do input para moeda atual , do input "de"
 
       const formatValue = new Intl.NumberFormat("pt-BR", {
         style: "currency",
         currency: `${fromCurrency.value}`,
       }).format(amount.value);
-
+      // formatar valor do input para moeda atual , do input "para"
       const formatValueResult = new Intl.NumberFormat("pt-BR", {
         style: "currency",
         currency: `${toCurrency.value}`,
       }).format(result.value);
+
+      // exibe o resultados no card de info
 
       info.innerHTML = `
     <h1 class="font-bold  text-[20px] md:text-2xl">${formatValue}  = ${formatValueResult} </h1>
@@ -62,6 +64,7 @@ async function convertMoney() {
     `;
 
       loading.style.display = "none";
+      reload.style.display = "block";
     }
   }, 1000);
 
