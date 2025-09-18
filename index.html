@@ -34,7 +34,7 @@
           <div class="flex flex-2 flex-col">
             <label for="amount" class="font-medium">Valor</label>
             <input
-              class="flex flex-2 w-full p-1.5 px-2.5 bg-gray-300 border-1 border-gray-400 rounded-xl font-medium"
+              class="flex flex-2 w-full p-1.5 px-2.5 bg-gray-300 border-1 border-gray-400 rounded-md font-medium"
               type="number"
               id="amount"
               placeholder="Digite o valor...."
@@ -44,7 +44,7 @@
             />
           </div>
           <!--Selection 1-->
-          <div class="flex flex-1 flex-col">
+          <!-- <div class="flex flex-1 flex-col">
             <label for="fromCurrency" class="font-medium">De</label>
             <select
               class="flex w-full py-1.5 px-2.5 bg-gray-300 border-1 border-gray-400 rounded-xl text-[17px] font-medium"
@@ -62,13 +62,13 @@
               <option value="CNY">CNY - Yuan</option>
               <option value="ARS">ARS - Peso Argentino</option>
             </select>
-          </div>
+          </div> -->
         </section>
 
         <!--Resultado e segunda moeda-->
         <section class="flex w-full items-center justify-center gap-3">
-          <div class="flex flex-2 flex-col">
-            <!--Input 2-->
+          <!--Input 2-->
+          <div class="flex-2 flex-col hidden">
             <label for="result" class="font-medium">Resultado</label>
             <input
               class="p-1.5 px-2.5 w-full bg-gray-300 border-1 border-gray-400 rounded-xl font-medium"
@@ -78,11 +78,31 @@
               readonly
             />
           </div>
+          <!--Selection 1-->
+          <div class="flex flex-1 flex-col">
+            <label for="fromCurrency" class="font-medium">De</label>
+            <select
+              class="flex w-full py-1.5 px-2.5 bg-gray-300 border-1 border-gray-400 rounded-md text-[17px] font-medium"
+              name="fromCurrency"
+              id="fromCurrency"
+            >
+              <option value="USD">USD - Dólar</option>
+              <option value="EUR">EUR - Euro</option>
+              <option value="BRL" selected>BRL - Real</option>
+              <option value="GBP">GBP - Libra</option>
+              <option value="JPY">JPY - Iene</option>
+              <option value="CAD">CAD - Dólar Canadense</option>
+              <option value="AUD">AUD - Dólar Australiano</option>
+              <option value="CHF">CHF - Franco Suíço</option>
+              <option value="CNY">CNY - Yuan</option>
+              <option value="ARS">ARS - Peso Argentino</option>
+            </select>
+          </div>
           <!--Selection 2-->
           <div class="flex flex-1 flex-col">
             <label for="toCurrency" class="font-medium">Para</label>
             <select
-              class="p-1.5 px-2.5 w-full bg-gray-300 border-1 border-gray-400 rounded-xl text-[17px] font-medium"
+              class="p-1.5 px-2.5 w-full bg-gray-300 border-1 border-gray-400 rounded-md text-[17px] font-medium"
               name="toCurrency"
               id="toCurrency"
             >
@@ -119,7 +139,22 @@
         id="info"
         class="hidden w-full items-center justify-center bg-linear-to-r to-indigo-500 from-rose-500 rounded-xl p-5 text-white text-center"
       ></div>
-      <div id="error" class="bg-red-300 w-full p-2 rounded-md hidden"></div>
+      <button
+        id="reload"
+        class="mt-5 md:text-2xl hover:opacity-90 hover:-translate-y-0.5 active:text-white hover:shadow-2xl transition-all duration-300 font-black text-gray-300 bg-linear-to-t to-sky-500 from-indigo-500 rounded-xl p-4 w-full justify-center items-center"
+      >
+        🔍 Nova consulta
+      </button>
+      <div id="error" class="hidden error">
+        <div class="bg-red-300 w-full p-2 rounded-md"></div>
+        <button
+          id="reload"
+          class="mt-5 md:text-2xl hover:opacity-90 hover:-translate-y-0.5 active:text-white hover:shadow-2xl transition-all duration-300 font-black text-gray-300 bg-linear-to-t to-sky-500 from-indigo-500 rounded-xl p-4 w-full justify-center items-center"
+        >
+          🔍 Tente Novamente
+        </button>
+      </div>
+
       <p class="text-gray-400 text-center">💡Taxa atualizada em tempo real</p>
     </main>
     <script
